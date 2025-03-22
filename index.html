@@ -3,16 +3,20 @@
 <script src="https://unpkg.com/lucky-canvas@1.7.25"></script>
 <script>
   const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
-    width: '300px',
-    height: '300px',
+    width: '600px',
+    height: '600px',
     blocks: [{ padding: '10px', background: '#617df2' }],
     prizes: [
-      { background: '#e9e8fe', fonts: [{ text: '0' }] },
-      { background: '#b8c5f2', fonts: [{ text: '1' }] },
-      { background: '#e9e8fe', fonts: [{ text: '2' }] },
-      { background: '#b8c5f2', fonts: [{ text: '3' }] },
-      { background: '#e9e8fe', fonts: [{ text: '4' }] },
-      { background: '#b8c5f2', fonts: [{ text: '5' }] },
+      { background: '#e9e8fe', fonts: [{ text: '小妇人' }] },
+      { background: '#b8c5f2', fonts: [{ text: '时空恋旅人' }] },
+      { background: '#e9e8fe', fonts: [{ text: '听说' }] },
+      { background: '#b8c5f2', fonts: [{ text: '今夜，就算这份爱恋从世界上消失' }] },
+      { background: '#e9e8fe', fonts: [{ text: '寻梦环游记' }] },
+      { background: '#b8c5f2', fonts: [{ text: '穿过月亮的旅行' }] },
+      { background: '#e9e8fe', fonts: [{ text: '我想吃掉你的胰脏' }] },
+      { background: '#b8c5f2', fonts: [{ text: '若能与你共乘海浪之上' }] },
+      { background: '#e9e8fe', fonts: [{ text: '只有你' }] },
+      { background: '#b8c5f2', fonts: [{ text: '超异能族' }] },
     ],
     buttons: [{
       radius: '35%',
@@ -25,8 +29,10 @@
       myLucky.play()
       // 使用定时器模拟接口
       setTimeout(() => {
-        // 结束游戏
-        myLucky.stop(0)
+        // 生成随机索引，使结果是随机的
+        const randomIndex = Math.floor(Math.random() * myLucky.prizes.length)
+        // 结束游戏并将指针停在随机索引处
+        myLucky.stop(randomIndex)
       }, 3000)
     }
   })
